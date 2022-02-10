@@ -1,0 +1,144 @@
+<div class="cafe-form-container">
+    <a href="compras">Voltar</a>
+    <h1>Novo Pedido</h1>
+    <br><br>
+    <form action="/cafe/add" method="POST">
+        <div id="imagens">
+            <img src="/img/img_x1.jpg" alt="Cafe Expresso" id="cafeExpresso">
+            <input type="hidden" id="Produto01" name="Produto01"/>
+            <span class="form-product-name" id="produto01">Café Expresso - R$ 5.00</span>
+            <select class="form-dropdown" name="input1" id="input1" onblur="calcular()">
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            </select>
+        </div>
+
+        <div id="imagens">
+            <img src="/img/img_x2.jpg" alt="Café com Chocolate" id="cafeChocolate">
+            <span class="form-product-name" id="Produto02">Café com Chocolate- R$ 6.00</span>
+            <select class="form-dropdown" name="input2" id="input2" onblur="calcular()">
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            </select>
+        </div>
+
+        <div id="imagens">
+            <img src="/img/img_x3.jpg" alt="Cafe com leite" id="cafeLeite">
+            <span class="form-product-name" id="Produto03">Café com Leite - R$ 4.50</span>
+            <select class="form-dropdown" name="input3" id="input3" onblur="calcular()">
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            </select>
+        </div>
+
+        <div id="imagens">
+            <img src="/img/img_x4.jpg" alt="Bolo de Cenoura" id="BoloCenoura">
+            <span class="form-product-name" id="Produto04">Bolo de Cenoura - R$ 2.50</span>
+            <select class="form-dropdown" name="input4" id="input4" onblur="calcular()">
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            </select>
+        </div>
+
+        <div id="imagens">
+            <img src="/img/img_x5.jpg" alt="Torta de Limão" id="Tortalimao">
+            <span class="form-product-name" id="Produto05">Torta de Limão - R$ 3.00</span>
+            <select class="form-dropdown" name="input5" id="input5" onblur="calcular()">
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            </select>
+        </div>
+        <div id="imagens">
+            <img src="/img/img_x6.jpg" alt="Copo de Chocolate" id="CopoChocolate">
+            <span class="form-product-name" id="Produto06">Copo de Chocolate - R$ 4.00</span>
+            <select class="form-dropdown" name="input6" id="input6" onblur="calcular()">
+            <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            </select>
+        </div>
+
+        <br><br>
+
+        <span class="form-payment-total">
+            <b>
+                <span id="total-text">Total R$</span>
+                <span name="resultado" id="resultado"></span>
+                <input type="hidden" name="resultado" id="resultado" value="" />
+            </b>
+        </span>
+        
+        <br><br>
+        <li class="form-line" data-type="control_textarea" id="id_10">
+            <label id="label_1" for="input_10"> Informações adicionais sobre este pedido: </label>
+            <div id="informacao" class="form-input">
+                <textarea id="input_10" class="form-textarea" name="informacao" cols="40" rows="6" data-component="textarea" aria-labelledby="label_10"></textarea>
+            </div>
+        </li>
+
+<!--
+        <br><br>
+        
+            <div class="checkout-header">
+                <h1 class="checkout-title">
+                    Pagamento
+                </h1>
+            </div>
+            <p>
+            <input type="text" class="checkout-input checkout-name" placeholder="Nome Titular">
+            <input type="text" class="checkout-input checkout-exp" placeholder="MM">
+            <input type="text" class="checkout-input checkout-exp" placeholder="AA">
+            </p>
+            <p>
+            <input type="text" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
+            <input type="text" class="checkout-input checkout-cvc" placeholder="CVC">
+            </p>
+
+            -->   
+        <br><br><br>
+        <input type="submit" value="Realizar Pedido">
+
+    </form>
+</div>
+
+<script>
+    function calcular() {
+        var num1 = Number(document.getElementById("input1").value) * 5;
+        var num2 = Number(document.getElementById("input2").value) * 6;
+        var num3 = Number(document.getElementById("input3").value) * 4.5;
+        var num4 = Number(document.getElementById("input4").value) * 2.5;
+        var num5 = Number(document.getElementById("input5").value) * 3;
+        var num6 = Number(document.getElementById("input6").value) * 4;
+        var elemResult = document.getElementById("resultado");
+    
+        if (elemResult.textContent === undefined) {
+            elemResult.textContent = parseFloat(num1 + num2 + num3 + num4 + num5 + num6);
+        }
+        else {
+            elemResult.textContent = parseFloat(num1 + num2 + num3 + num4 + num5 + num6);
+        }
+    }
+</script>
